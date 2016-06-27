@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ary_alphabet_idx">
+        <item>あ</item>
+        <item>か</item>
+        <item>さ</item>
+        <item>た</item>
+        <item>な</item>
+        <item>は</item>
+        <item>ま</item>
+        <item>や</item>
+        <item>ら</item>
+        <item>わ</item>
+        <item>ん</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>#</item>
+    </string-array>
+
+    <string-array name="japanese_unicode_array">
+        <item>@array/japanese_1</item>
+        <item>@array/japanese_2</item>
+        <item>@array/japanese_3</item>
+        <item>@array/japanese_4</item>
+        <item>@array/japanese_5</item>
+        <item>@array/japanese_6</item>
+        <item>@array/japanese_7</item>
+        <item>@array/japanese_8</item>
+        <item>@array/japanese_9</item>
+        <item>@array/japanese_10</item>
+        <item>@array/japanese_11</item>
+    </string-array>
+
+    <string-array name="japanese_1">
+        <item name="id"		       >1</item>
+        <item name="consonant"	   >あ</item>
+        <item name="hirakana_start">\u3040</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u304A</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30A0</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30AA</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_2">
+        <item name="id"		       >2</item>
+        <item name="consonant"	   >か</item>
+        <item name="hirakana_start">\u304B</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u3054</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30AB</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30B4</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_3">
+        <item name="id"		       >3</item>
+        <item name="consonant"	   >さ</item>
+        <item name="hirakana_start">\u3055</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u305E</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30B5</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30BE</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_4">
+        <item name="id"		       >4</item>
+        <item name="consonant"	   >た</item>
+        <item name="hirakana_start">\u305F</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u3069</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30BF</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30C9</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_5">
+        <item name="id"		       >5</item>
+        <item name="consonant"	   >な</item>
+        <item name="hirakana_start">\u306A</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u306E</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30CA</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30CE</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_6">
+        <item name="id"		       >6</item>
+        <item name="consonant"	   >は</item>
+        <item name="hirakana_start">\u306F</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u307D</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30CF</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30DD</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_7">
+        <item name="id"		       >7</item>
+        <item name="consonant"	   >ま</item>
+        <item name="hirakana_start">\u307E</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u3082</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30DE</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30E2</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_8">
+        <item name="id"		       >8</item>
+        <item name="consonant"	   >や</item>
+        <item name="hirakana_start">\u3083</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u3088</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30E3</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30E8</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_9">
+        <item name="id"		       >9</item>
+        <item name="consonant"	   >ら</item>
+        <item name="hirakana_start">\u3089</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u308D</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30E9</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30ED</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_10">
+        <item name="id"		       >10</item>
+        <item name="consonant"	   >わ</item>
+        <item name="hirakana_start">\u308E</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u3092</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30EE</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30F2</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="japanese_11">
+        <item name="id"		       >11</item>
+        <item name="consonant"	   >ん</item>
+        <item name="hirakana_start">\u3093</item> <!-- hiragana start -->
+        <item name="hirakana_end"  >\u309F</item> <!-- hiragana end -->
+        <item name="hirakana_start">\u30F3</item> <!-- katakana start -->
+        <item name="hirakana_end"  >\u30FF</item> <!-- hiragana end -->
+    </string-array>
+
+</resources>
