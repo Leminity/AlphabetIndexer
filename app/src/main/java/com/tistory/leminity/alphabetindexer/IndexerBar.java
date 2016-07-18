@@ -21,7 +21,7 @@ public class IndexerBar extends View {
 
     private static final String HASH_MARK = "#";
 
-    private static final int TEXT_SIZE = 12;
+    private static final int TEXT_SIZE = 10;
 
     private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
 
@@ -31,7 +31,7 @@ public class IndexerBar extends View {
 
     private Paint mPaint = new Paint();
 
-    boolean mShowBkg = false;
+    boolean mTouchPressed = false;
 
     public IndexerBar(Context context) {
         super(context);
@@ -58,44 +58,50 @@ public class IndexerBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int     width           = getWidth();
+        int     CANVAS_HALF_WIDTH           = getWidth() / 2;
         int     height          = getHeight();
         float   textSize        = getResources().getDisplayMetrics().density * TEXT_SIZE;
         int     singleHeight    = height / mIndexer.length;
-
         int     skipIdxCnt      = getskipIndexCountIfOverlap(mIndexer.length, (int)textSize);
 
-        if (mShowBkg) {
-            canvas.drawColor(ContextCompat.getColor(getContext(), android.R.color.background_light));
-        }
+        setBackgroundResource(mTouchPressed ? R.drawable.shape_round_rectangle_pressed : R.drawable.shape_round_rectangle_normal);
 
         for (int i = 0; i < mIndexer.length; i++) {
-            float xPos = width / 2 - mPaint.measureText(mIndexer[i]) / 2;
-            float yPos = singleHeight * i + singleHeight;
+            float yPos = (singleHeight * i) + singleHeight;
 
             if(isShowDotInsteadAlphabet(mIndexer.length, i, skipIdxCnt)) {
-                drawDot(canvas, xPos, yPos);
+                drawDot(canvas, i, CANVAS_HALF_WIDTH, yPos - (singleHeight / 2));
             } else {
-                drawAlphabet(canvas, textSize, i, xPos, yPos);
+                drawAlphabet(canvas, textSize, i, CANVAS_HALF_WIDTH, yPos);
             }
         }
     }
 
-    private void drawDot(Canvas canvas, float xPos, float yPos) {
-        mPaint.setColor(Color.BLACK);
-        canvas.drawCircle(xPos, yPos, 3, mPaint);
+    private void drawDot(Canvas canvas, int i, float canvasHalfWidth, float yPos) {
+        final int RADIUS_DOT = 4;
+
+        mPaint.setColor(Color.GRAY);
+        mPaint.setAntiAlias(true);
+        if (i == mChoose) {
+            mPaint.setColor(ContextCompat.getColor(getContext(), android.R.color.holo_blue_light));
+        }
+
+        canvas.drawCircle(canvasHalfWidth - (RADIUS_DOT / 2), yPos, RADIUS_DOT, mPaint);
         mPaint.reset();
     }
 
-    private void drawAlphabet(Canvas canvas, float textSize, int i, float xPos, float yPos) {
-        mPaint.setColor(Color.WHITE);
+    private void drawAlphabet(Canvas canvas, float textSize, int i, float canvasHalfWidth, float yPos) {
+        final String CONSONANT = mIndexer[i];
+
+        mPaint.setColor(Color.GRAY);
         mPaint.setTextSize(textSize);
         mPaint.setAntiAlias(true);
         if (i == mChoose) {
             mPaint.setColor(ContextCompat.getColor(getContext(), android.R.color.holo_blue_light));
             mPaint.setFakeBoldText(true);
         }
-        canvas.drawText(mIndexer[i], xPos, yPos, mPaint);
+
+        canvas.drawText(CONSONANT, canvasHalfWidth - (mPaint.measureText(CONSONANT) / 2), yPos, mPaint);
         mPaint.reset();
     }
 
@@ -152,7 +158,7 @@ public class IndexerBar extends View {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                mShowBkg = true;
+                mTouchPressed = true;
                 if (oldChoose != characterIndex && listener != null) {
                     if (characterIndex >= 0 && characterIndex < mIndexer.length) {
                         listener.onTouchingLetterChanged(mIndexer[characterIndex]);
@@ -171,7 +177,7 @@ public class IndexerBar extends View {
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                mShowBkg = false;
+                mTouchPressed = false;
                 mChoose = -1;
                 invalidate();
                 break;
