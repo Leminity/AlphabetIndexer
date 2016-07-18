@@ -1,6 +1,8 @@
 package com.tistory.leminity.alphabetindexer;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,7 +12,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 2016-06-21.
@@ -18,14 +21,15 @@ import java.util.regex.Pattern;
 public class IndexerBar extends View {
 
     private static final String PATTERN = "^[A-Za-z]+$";
-
     private static final String HASH_MARK = "#";
 
     private static final int TEXT_SIZE = 10;
 
-    private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
+    private OnIndexBarListener mOnIndexBarListener;
 
-    private String[] mIndexer = {};
+    private String[]                mConsonantArray = {};
+    private boolean mIsDefineUnicode = false;
+    private List<ConsonantUnicode> mConsonantUnicodeList = null;
 
     private int mChoose = -1;
 
@@ -35,23 +39,95 @@ public class IndexerBar extends View {
 
     public IndexerBar(Context context) {
         super(context);
+        initConsonants();
     }
 
     public IndexerBar(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initConsonants();
     }
 
     public IndexerBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        initConsonants();
     }
 
-    public void setIndexList(String[] indexArray) {
-        mIndexer = indexArray;
-        postInvalidate();
+    /**
+     * Load consonant List
+     */
+    private void initConsonants() {
+        Resources res = getResources();
+        mConsonantArray = res.getStringArray(R.array.ary_alphabet_idx);
+        mIsDefineUnicode = res.getBoolean(R.bool.defined_unicode);
+        if(mIsDefineUnicode)
+            initUnicode();
+    }
+
+    /**
+     * Load consonant Unicode List
+     */
+    private void initUnicode() {
+        Resources res           = getResources();
+        TypedArray typedArray   = res.obtainTypedArray(R.array.unicode_array);
+        int length              = typedArray.length();
+        mConsonantUnicodeList = new ArrayList(length);
+
+        String[][] array = new String[length][];
+        for (int i = 0; i < length; ++i) {
+            int id = typedArray.getResourceId(i, 0);
+            if(id > 0)
+                array[i] = res.getStringArray(id);
+        }
+        typedArray.recycle();
+
+        final int CONSONANT_ID_IDX      = 0; //리소스 파일(ex:jp)을 보면 첫번째는 ID임
+        final int CONSONANT_TXT_IDX     = 1; //실제 자음
+        final int UNICODE_START_IDX   = 2; //유니코드 시작 IDX
+        for(int i = 0; i < array.length; i++) {
+            String[] aryValue = array[i];
+            String consonant = aryValue[CONSONANT_TXT_IDX];
+            char[] unicodeAry = new char[aryValue.length - UNICODE_START_IDX];
+
+            int insertIdx = 0;
+            for (int j = UNICODE_START_IDX; j < aryValue.length; j++) {
+                unicodeAry[insertIdx++] = aryValue[j].toCharArray()[0];
+            }
+
+            mConsonantUnicodeList.add(new ConsonantUnicode(consonant, unicodeAry));
+        }
     }
 
     /********************************************************************************************************************
-     * 그리기 관련 처리
+     * Public api
+     ********************************************************************************************************************/
+    public void setOnIndexBarListener(OnIndexBarListener onIndexBarListener) {
+        this.mOnIndexBarListener = onIndexBarListener;
+    }
+
+    public boolean isDefineUnicode() {
+        return mIsDefineUnicode;
+    }
+
+    /**
+     * return consonant list.
+     * (depends device language.)
+     * @return
+     */
+    public String[] getConsonants() {
+        return mConsonantArray;
+    }
+
+    /**
+     * return consonant Unicode Info List or null.
+     * return null when If not required unicode process.
+     * @return
+     */
+    public List<ConsonantUnicode> getConsonantUnicodeList() {
+        return mConsonantUnicodeList;
+    }
+
+    /********************************************************************************************************************
+     * private api
      ********************************************************************************************************************/
 
     @Override
@@ -61,15 +137,15 @@ public class IndexerBar extends View {
         int     CANVAS_HALF_WIDTH           = getWidth() / 2;
         int     height          = getHeight();
         float   textSize        = getResources().getDisplayMetrics().density * TEXT_SIZE;
-        int     singleHeight    = height / mIndexer.length;
-        int     skipIdxCnt      = getskipIndexCountIfOverlap(mIndexer.length, (int)textSize);
+        int     singleHeight    = height / mConsonantArray.length;
+        int     skipIdxCnt      = getskipIndexCountIfOverlap(mConsonantArray.length, (int)textSize);
 
         setBackgroundResource(mTouchPressed ? R.drawable.shape_round_rectangle_pressed : R.drawable.shape_round_rectangle_normal);
 
-        for (int i = 0; i < mIndexer.length; i++) {
+        for (int i = 0; i < mConsonantArray.length; i++) {
             float yPos = (singleHeight * i) + singleHeight;
 
-            if(isShowDotInsteadAlphabet(mIndexer.length, i, skipIdxCnt)) {
+            if(isShowDotInsteadAlphabet(mConsonantArray.length, i, skipIdxCnt)) {
                 drawDot(canvas, i, CANVAS_HALF_WIDTH, yPos - (singleHeight / 2));
             } else {
                 drawAlphabet(canvas, textSize, i, CANVAS_HALF_WIDTH, yPos);
@@ -91,7 +167,7 @@ public class IndexerBar extends View {
     }
 
     private void drawAlphabet(Canvas canvas, float textSize, int i, float canvasHalfWidth, float yPos) {
-        final String CONSONANT = mIndexer[i];
+        final String CONSONANT = mConsonantArray[i];
 
         mPaint.setColor(Color.GRAY);
         mPaint.setTextSize(textSize);
@@ -153,15 +229,15 @@ public class IndexerBar extends View {
         final int action = event.getAction();
         final float y = event.getY();
         final int oldChoose = mChoose;
-        final OnTouchingLetterChangedListener listener = onTouchingLetterChangedListener;
-        final int characterIndex = (int) (y / getHeight() * mIndexer.length);
+        final OnIndexBarListener listener = mOnIndexBarListener;
+        final int characterIndex = (int) (y / getHeight() * mConsonantArray.length);
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 mTouchPressed = true;
                 if (oldChoose != characterIndex && listener != null) {
-                    if (characterIndex >= 0 && characterIndex < mIndexer.length) {
-                        listener.onTouchingLetterChanged(mIndexer[characterIndex]);
+                    if (characterIndex >= 0 && characterIndex < mConsonantArray.length) {
+                        listener.onTouchingConsonantChanged(mConsonantArray[characterIndex]);
                         mChoose = characterIndex;
                         invalidate();
                     }
@@ -169,8 +245,8 @@ public class IndexerBar extends View {
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (oldChoose != characterIndex && listener != null) {
-                    if (characterIndex >= 0 && characterIndex < mIndexer.length) {
-                        listener.onTouchingLetterChanged(mIndexer[characterIndex]);
+                    if (characterIndex >= 0 && characterIndex < mConsonantArray.length) {
+                        listener.onTouchingConsonantChanged(mConsonantArray[characterIndex]);
                         mChoose = characterIndex;
                         invalidate();
                     }
@@ -185,34 +261,11 @@ public class IndexerBar extends View {
         return true;
     }
 
-    public void setOnTouchingLetterChangedListener(
-            OnTouchingLetterChangedListener onTouchingLetterChangedListener) {
-        this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
-    }
-
-    public interface OnTouchingLetterChangedListener {
-        public void onTouchingLetterChanged(String s);
-    }
-
-    public static String getAlpha(String str) {
-        if (str == null) {
-            return HASH_MARK;
-        }
-
-        if (str.trim().length() == 0) {
-            return HASH_MARK;
-        }
-
-        String firstChar = str.trim().substring(0, 1);
-        Pattern pattern = Pattern.compile(PATTERN);
-        if (pattern.matcher(firstChar).matches()) {
-            return firstChar.toUpperCase();
-        } else {
-            return HASH_MARK;
-        }
-    }
-
     private void showLog(String message) {
         Log.d(getClass().getSimpleName(), "indexerBar : " + message);
+    }
+
+    public interface OnIndexBarListener {
+        public void onTouchingConsonantChanged(String s);
     }
 }
