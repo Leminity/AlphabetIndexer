@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="defined_unicode">false</bool>
+
     <string-array name="ary_alphabet_idx">
         <item>ㄱ</item>
         <item>ㄴ</item>

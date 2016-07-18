@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="defined_unicode">true</bool>
+
     <string-array name="ary_alphabet_idx">
         <item>あ</item>
         <item>か</item>
@@ -41,7 +43,7 @@
         <item>#</item>
     </string-array>
 
-    <string-array name="japanese_unicode_array">
+    <string-array name="unicode_array">
         <item>@array/japanese_1</item>
         <item>@array/japanese_2</item>
         <item>@array/japanese_3</item>
