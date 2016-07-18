@@ -83,7 +83,7 @@ public class IndexerBar extends View {
         mPaint.setColor(Color.GRAY);
         mPaint.setAntiAlias(true);
         if (i == mChoose) {
-            mPaint.setColor(ContextCompat.getColor(getContext(), android.R.color.holo_blue_light));
+            mPaint.setColor(ContextCompat.getColor(getContext(), R.color.colorIndexerRoundPressed));
         }
 
         canvas.drawCircle(canvasHalfWidth - (RADIUS_DOT / 2), yPos, RADIUS_DOT, mPaint);
@@ -97,7 +97,7 @@ public class IndexerBar extends View {
         mPaint.setTextSize(textSize);
         mPaint.setAntiAlias(true);
         if (i == mChoose) {
-            mPaint.setColor(ContextCompat.getColor(getContext(), android.R.color.holo_blue_light));
+            mPaint.setColor(ContextCompat.getColor(getContext(), R.color.colorIndexerRoundPressed));
             mPaint.setFakeBoldText(true);
         }
 
