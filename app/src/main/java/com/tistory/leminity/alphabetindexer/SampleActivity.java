@@ -2,6 +2,10 @@ package com.tistory.leminity.alphabetindexer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.util.List;
 
 public class SampleActivity extends AppCompatActivity {
 
@@ -14,7 +18,19 @@ public class SampleActivity extends AppCompatActivity {
 
 
         mIndexerBar = (IndexerBar) findViewById(R.id.indexerBar);
+        mIndexerBar.setOnIndexBarListener(new IndexerBar.OnIndexBarListener() {
+            @Override
+            public void onTouchingConsonantChanged(String consonant) {
+                Toast.makeText(getBaseContext(), consonant, Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        mIndexerBar.setIndexList(getResources().getStringArray(R.array.ary_alphabet_idx));
+        String[] consonantArray = mIndexerBar.getConsonants();
+        for (String consonant : consonantArray)
+            Log.d("leminity", "check to consonant :: " + consonant);
+
+        List<ConsonantUnicode> consonantUnicodeList = mIndexerBar.getConsonantUnicodeList();
+        Log.d("leminity", "check to consonant Unicode List :: " + consonantUnicodeList);
+
     }
 }
