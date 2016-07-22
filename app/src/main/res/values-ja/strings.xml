@@ -55,6 +55,32 @@
         <item>@array/japanese_9</item>
         <item>@array/japanese_10</item>
         <item>@array/japanese_11</item>
+        <item>@array/alphabet_1</item>
+        <item>@array/alphabet_2</item>
+        <item>@array/alphabet_3</item>
+        <item>@array/alphabet_4</item>
+        <item>@array/alphabet_5</item>
+        <item>@array/alphabet_6</item>
+        <item>@array/alphabet_7</item>
+        <item>@array/alphabet_8</item>
+        <item>@array/alphabet_9</item>
+        <item>@array/alphabet_10</item>
+        <item>@array/alphabet_11</item>
+        <item>@array/alphabet_12</item>
+        <item>@array/alphabet_13</item>
+        <item>@array/alphabet_14</item>
+        <item>@array/alphabet_15</item>
+        <item>@array/alphabet_16</item>
+        <item>@array/alphabet_17</item>
+        <item>@array/alphabet_18</item>
+        <item>@array/alphabet_19</item>
+        <item>@array/alphabet_20</item>
+        <item>@array/alphabet_21</item>
+        <item>@array/alphabet_22</item>
+        <item>@array/alphabet_23</item>
+        <item>@array/alphabet_24</item>
+        <item>@array/alphabet_25</item>
+        <item>@array/alphabet_26</item>
     </string-array>
 
     <string-array name="japanese_1">
@@ -154,6 +180,240 @@
         <item name="hirakana_end"  >\u309F</item> <!-- hiragana end -->
         <item name="hirakana_start">\u30F3</item> <!-- katakana start -->
         <item name="hirakana_end"  >\u30FF</item> <!-- hiragana end -->
+    </string-array>
+
+    <string-array name="alphabet_1">
+        <item name="id"		       >1</item>
+        <item name="consonant"	   >A</item>
+        <item name="alphabet_up_start">\u0041</item>
+        <item name="alphabet_up_end"  >\u0041</item>
+        <item name="alphabet_lw_start">\u0061</item>
+        <item name="alphabet_lw_end"  >\u0061</item>
+    </string-array>
+
+    <string-array name="alphabet_2">
+        <item name="id"		       >2</item>
+        <item name="consonant"	   >B</item>
+        <item name="alphabet_up_start">\u0042</item>
+        <item name="alphabet_up_end"  >\u0042</item>
+        <item name="alphabet_lw_start">\u0062</item>
+        <item name="alphabet_lw_end"  >\u0062</item>
+    </string-array>
+
+    <string-array name="alphabet_3">
+        <item name="id"		       >3</item>
+        <item name="consonant"	   >C</item>
+        <item name="alphabet_up_start">\u0043</item>
+        <item name="alphabet_up_end"  >\u0043</item>
+        <item name="alphabet_lw_start">\u0063</item>
+        <item name="alphabet_lw_end"  >\u0063</item>
+    </string-array>
+
+    <string-array name="alphabet_4">
+        <item name="id"		       >4</item>
+        <item name="consonant"	   >D</item>
+        <item name="alphabet_up_start">\u0044</item>
+        <item name="alphabet_up_end"  >\u0044</item>
+        <item name="alphabet_lw_start">\u0064</item>
+        <item name="alphabet_lw_end"  >\u0064</item>
+    </string-array>
+
+    <string-array name="alphabet_5">
+        <item name="id"		       >5</item>
+        <item name="consonant"	   >E</item>
+        <item name="alphabet_up_start">\u0045</item>
+        <item name="alphabet_up_end"  >\u0045</item>
+        <item name="alphabet_lw_start">\u0065</item>
+        <item name="alphabet_lw_end"  >\u0065</item>
+    </string-array>
+
+    <string-array name="alphabet_6">
+        <item name="id"		       >6</item>
+        <item name="consonant"	   >F</item>
+        <item name="alphabet_up_start">\u0046</item>
+        <item name="alphabet_up_end"  >\u0046</item>
+        <item name="alphabet_lw_start">\u0066</item>
+        <item name="alphabet_lw_end"  >\u0066</item>
+    </string-array>
+
+    <string-array name="alphabet_7">
+        <item name="id"		       >7</item>
+        <item name="consonant"	   >G</item>
+        <item name="alphabet_up_start">\u0047</item>
+        <item name="alphabet_up_end"  >\u0047</item>
+        <item name="alphabet_lw_start">\u0067</item>
+        <item name="alphabet_lw_end"  >\u0067</item>
+    </string-array>
+
+    <string-array name="alphabet_8">
+        <item name="id"		       >8</item>
+        <item name="consonant"	   >H</item>
+        <item name="alphabet_up_start">\u0048</item>
+        <item name="alphabet_up_end"  >\u0048</item>
+        <item name="alphabet_lw_start">\u0068</item>
+        <item name="alphabet_lw_end"  >\u0068</item>
+    </string-array>
+
+    <string-array name="alphabet_9">
+        <item name="id"		       >9</item>
+        <item name="consonant"	   >I</item>
+        <item name="alphabet_up_start">\u0049</item>
+        <item name="alphabet_up_end"  >\u0049</item>
+        <item name="alphabet_lw_start">\u0069</item>
+        <item name="alphabet_lw_end"  >\u0069</item>
+    </string-array>
+
+    <string-array name="alphabet_10">
+        <item name="id"		       >10</item>
+        <item name="consonant"	   >J</item>
+        <item name="alphabet_up_start">\u004a</item>
+        <item name="alphabet_up_end"  >\u004a</item>
+        <item name="alphabet_lw_start">\u006a</item>
+        <item name="alphabet_lw_end"  >\u006a</item>
+    </string-array>
+
+    <string-array name="alphabet_11">
+        <item name="id"		       >11</item>
+        <item name="consonant"	   >K</item>
+        <item name="alphabet_up_start">\u004b</item>
+        <item name="alphabet_up_end"  >\u004b</item>
+        <item name="alphabet_lw_start">\u006b</item>
+        <item name="alphabet_lw_end"  >\u006b</item>
+    </string-array>
+
+    <string-array name="alphabet_12">
+        <item name="id"		       >12</item>
+        <item name="consonant"	   >L</item>
+        <item name="alphabet_up_start">\u004c</item>
+        <item name="alphabet_up_end"  >\u004c</item>
+        <item name="alphabet_lw_start">\u006c</item>
+        <item name="alphabet_lw_end"  >\u006c</item>
+    </string-array>
+
+    <string-array name="alphabet_13">
+        <item name="id"		       >13</item>
+        <item name="consonant"	   >M</item>
+        <item name="alphabet_up_start">\u004d</item>
+        <item name="alphabet_up_end"  >\u004d</item>
+        <item name="alphabet_lw_start">\u006d</item>
+        <item name="alphabet_lw_end"  >\u006d</item>
+    </string-array>
+
+    <string-array name="alphabet_14">
+        <item name="id"		       >14</item>
+        <item name="consonant"	   >N</item>
+        <item name="alphabet_up_start">\u004e</item>
+        <item name="alphabet_up_end"  >\u004e</item>
+        <item name="alphabet_lw_start">\u006e</item>
+        <item name="alphabet_lw_end"  >\u006e</item>
+    </string-array>
+
+    <string-array name="alphabet_15">
+        <item name="id"		       >15</item>
+        <item name="consonant"	   >O</item>
+        <item name="alphabet_up_start">\u004f</item>
+        <item name="alphabet_up_end"  >\u004f</item>
+        <item name="alphabet_lw_start">\u006f</item>
+        <item name="alphabet_lw_end"  >\u006f</item>
+    </string-array>
+
+    <string-array name="alphabet_16">
+        <item name="id"		       >16</item>
+        <item name="consonant"	   >P</item>
+        <item name="alphabet_up_start">\u0050</item>
+        <item name="alphabet_up_end"  >\u0050</item>
+        <item name="alphabet_lw_start">\u0070</item>
+        <item name="alphabet_lw_end"  >\u0070</item>
+    </string-array>
+
+    <string-array name="alphabet_17">
+        <item name="id"		       >17</item>
+        <item name="consonant"	   >Q</item>
+        <item name="alphabet_up_start">\u0051</item>
+        <item name="alphabet_up_end"  >\u0051</item>
+        <item name="alphabet_lw_start">\u0071</item>
+        <item name="alphabet_lw_end"  >\u0071</item>
+    </string-array>
+
+    <string-array name="alphabet_18">
+        <item name="id"		       >18</item>
+        <item name="consonant"	   >R</item>
+        <item name="alphabet_up_start">\u0052</item>
+        <item name="alphabet_up_end"  >\u0052</item>
+        <item name="alphabet_lw_start">\u0072</item>
+        <item name="alphabet_lw_end"  >\u0072</item>
+    </string-array>
+
+    <string-array name="alphabet_19">
+        <item name="id"		       >19</item>
+        <item name="consonant"	   >S</item>
+        <item name="alphabet_up_start">\u0053</item>
+        <item name="alphabet_up_end"  >\u0053</item>
+        <item name="alphabet_lw_start">\u0073</item>
+        <item name="alphabet_lw_end"  >\u0073</item>
+    </string-array>
+
+    <string-array name="alphabet_20">
+        <item name="id"		       >20</item>
+        <item name="consonant"	   >T</item>
+        <item name="alphabet_up_start">\u0054</item>
+        <item name="alphabet_up_end"  >\u0054</item>
+        <item name="alphabet_lw_start">\u0074</item>
+        <item name="alphabet_lw_end"  >\u0074</item>
+    </string-array>
+
+    <string-array name="alphabet_21">
+        <item name="id"		       >21</item>
+        <item name="consonant"	   >U</item>
+        <item name="alphabet_up_start">\u0055</item>
+        <item name="alphabet_up_end"  >\u0055</item>
+        <item name="alphabet_lw_start">\u0075</item>
+        <item name="alphabet_lw_end"  >\u0075</item>
+    </string-array>
+
+    <string-array name="alphabet_22">
+        <item name="id"		       >22</item>
+        <item name="consonant"	   >V</item>
+        <item name="alphabet_up_start">\u0056</item>
+        <item name="alphabet_up_end"  >\u0056</item>
+        <item name="alphabet_lw_start">\u0076</item>
+        <item name="alphabet_lw_end"  >\u0076</item>
+    </string-array>
+
+    <string-array name="alphabet_23">
+        <item name="id"		       >23</item>
+        <item name="consonant"	   >W</item>
+        <item name="alphabet_up_start">\u0057</item>
+        <item name="alphabet_up_end"  >\u0057</item>
+        <item name="alphabet_lw_start">\u0077</item>
+        <item name="alphabet_lw_end"  >\u0077</item>
+    </string-array>
+
+    <string-array name="alphabet_24">
+        <item name="id"		       >24</item>
+        <item name="consonant"	   >X</item>
+        <item name="alphabet_up_start">\u0058</item>
+        <item name="alphabet_up_end"  >\u0058</item>
+        <item name="alphabet_lw_start">\u0078</item>
+        <item name="alphabet_lw_end"  >\u0078</item>
+    </string-array>
+
+    <string-array name="alphabet_25">
+        <item name="id"		       >25</item>
+        <item name="consonant"	   >Y</item>
+        <item name="alphabet_up_start">\u0059</item>
+        <item name="alphabet_up_end"  >\u0059</item>
+        <item name="alphabet_lw_start">\u0079</item>
+        <item name="alphabet_lw_end"  >\u0079</item>
+    </string-array>
+
+    <string-array name="alphabet_26">
+        <item name="id"		       >26</item>
+        <item name="consonant"	   >Z</item>
+        <item name="alphabet_up_start">\u005a</item>
+        <item name="alphabet_up_end"  >\u005a</item>
+        <item name="alphabet_lw_start">\u007a</item>
+        <item name="alphabet_lw_end"  >\u007a</item>
     </string-array>
 
 </resources>
