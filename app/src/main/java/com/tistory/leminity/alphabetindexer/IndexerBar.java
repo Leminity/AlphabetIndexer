@@ -23,7 +23,8 @@ public class IndexerBar extends View {
     private static final String PATTERN = "^[A-Za-z]+$";
     private static final String HASH_MARK = "#";
 
-    private static final int TEXT_SIZE = 10;
+    private final int TEXT_SIZE_DEFAULT = 10;
+    private final int TEXT_SIZE_CHOOSED = 17;
 
     private OnIndexBarListener mOnIndexBarListener;
 
@@ -136,7 +137,7 @@ public class IndexerBar extends View {
 
         int     CANVAS_HALF_WIDTH           = getWidth() / 2;
         int     height          = getHeight();
-        float   textSize        = getResources().getDisplayMetrics().density * TEXT_SIZE;
+        float   textSize        = getResources().getDisplayMetrics().density * TEXT_SIZE_DEFAULT;
         int     singleHeight    = height / mConsonantArray.length;
         int     skipIdxCnt      = getskipIndexCountIfOverlap(mConsonantArray.length, (int)textSize);
 
@@ -166,16 +167,20 @@ public class IndexerBar extends View {
         mPaint.reset();
     }
 
+    @SuppressWarnings("ResourceAsColor")
     private void drawAlphabet(Canvas canvas, float textSize, int i, float canvasHalfWidth, float yPos) {
         final String CONSONANT = mConsonantArray[i];
 
-        mPaint.setColor(Color.GRAY);
+        if(i == mChoose) {
+            mPaint.setColor(ContextCompat.getColor(getContext(), R.color.colorIndexerRoundPressed));
+            textSize = getResources().getDisplayMetrics().density * TEXT_SIZE_CHOOSED;
+        } else {
+            mPaint.setColor(Color.GRAY);
+        }
+
         mPaint.setTextSize(textSize);
         mPaint.setAntiAlias(true);
-        if (i == mChoose) {
-            mPaint.setColor(ContextCompat.getColor(getContext(), R.color.colorIndexerRoundPressed));
-            mPaint.setFakeBoldText(true);
-        }
+        mPaint.setFakeBoldText(true);
 
         canvas.drawText(CONSONANT, canvasHalfWidth - (mPaint.measureText(CONSONANT) / 2), yPos, mPaint);
         mPaint.reset();
