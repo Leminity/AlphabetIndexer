@@ -2,7 +2,7 @@
 Android AhphabetIndexer.
 
 1.Sample Code
-'''java
+```java
 mIndexerBar = (IndexerBar) findViewById(R.id.indexerBar);
 mIndexerBar.setOnIndexBarListener(new IndexerBar.OnIndexBarListener() {
     @Override
@@ -17,4 +17,4 @@ for (String consonant : consonantArray)
 
 List<ConsonantUnicode> consonantUnicodeList = mIndexerBar.getConsonantUnicodeList();
 Log.d("leminity", "check to consonant Unicode List :: " + consonantUnicodeList);
-'''
+```
