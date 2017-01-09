@@ -1,7 +1,7 @@
 # AlphabetIndexer
 Android AhphabetIndexer.
 
-* Usage
+1.Sample Code
 '''java
 mIndexerBar = (IndexerBar) findViewById(R.id.indexerBar);
 mIndexerBar.setOnIndexBarListener(new IndexerBar.OnIndexBarListener() {
